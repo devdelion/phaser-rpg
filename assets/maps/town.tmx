@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="4">
  <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="240" columns="20">
   <image source="../images/tileset.png" width="640" height="384"/>
   <tile id="51">
@@ -83,6 +83,13 @@
    <properties>
     <property name="group" value="players"/>
     <property name="texture" value="player_spritesheet"/>
+    <property name="walking_speed" type="int" value="100"/>
+   </properties>
+  </object>
+  <object id="2" name="door" type="door" x="512" y="38" width="32" height="32">
+   <properties>
+    <property name="group" value="doors"/>
+    <property name="next_level" value="cave"/>
    </properties>
   </object>
  </objectgroup>

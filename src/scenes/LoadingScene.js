@@ -1,8 +1,6 @@
 class LoadingScene extends Phaser.Scene {
     constructor() {
-        super({
-            key: 'LoadingScene'
-        });
+        super({ key: 'LoadingScene' });
     }
 
     init(data) {
@@ -16,16 +14,19 @@ class LoadingScene extends Phaser.Scene {
         for (let asset_key in assets) {
             let asset = assets[asset_key];
             switch (asset.type) {
-                case "image":
+                case 'image':
                     this.load.image(asset_key, asset.source);
                     break;
-                case "spritesheet":
+                case 'spritesheet':
                     this.load.spritesheet(asset_key, asset.source, { frameWidth: asset.frame_width, frameHeight: asset.frame_height, frames: asset.frames, margin: asset.margin, spacing: asset.spacing });
-                case "tilemap":
+                    break;
+                case 'tilemap':
                     this.load.tilemapTiledJSON(asset_key, asset.source);
                     break;
             }
         }
+
+        this.load.json(this.level_data.user_input.key, this.level_data.user_input.path);
     }
 
     create(data) {

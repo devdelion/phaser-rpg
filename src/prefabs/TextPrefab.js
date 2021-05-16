@@ -1,4 +1,4 @@
-class Prefab extends Phaser.GameObjects.Text {
+class TextPrefab extends Phaser.GameObjects.Text {
     constructor(scene, name, position, properties) {
         super(scene, position.x, position.y, properties.text, properties.style);
 
@@ -19,4 +19,4 @@ class Prefab extends Phaser.GameObjects.Text {
     }
 }
 
-export default Prefab;
+export default TextPrefab;

@@ -12,14 +12,8 @@ class TitleScene extends JSONLevelScene {
         }
     }
 
-    update() {
-        if (this.input.activePointer.isDown) {
-            this.start_game();
-        }
-    }
-
     start_game() {
-        console.log("starting next state");
+        this.scene.start('BootScene', { scene: 'town' });
     }
 }
 

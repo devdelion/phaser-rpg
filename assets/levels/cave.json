@@ -4,14 +4,14 @@
 
         "player_spritesheet": {"type": "spritesheet", "source": "/assets/images/world/player.png", "frame_width": 16, "frame_height": 16},
         
-        "town_level_tilemap": {"type": "tilemap", "source": "/assets/maps/town.json"}
+        "cave_level_tilemap": {"type": "tilemap", "source": "/assets/maps/cave.json"}
     },
     "groups": [
         "doors",
         "players"
     ],
     "map": {
-        "key": "town_level_tilemap",
+        "key": "cave_level_tilemap",
         "tilesets": ["map_tileset"]
     },
     "user_input": {
