@@ -6,7 +6,7 @@
         "background",
         "texts"
     ],
-    "sprites": {
+    "prefabs": {
         "background": {
             "type": "background",
             "position": {"x": 0, "y": 0},
@@ -36,7 +36,7 @@
         }
     },
     "user_input": {
-        "key": "title_user_input",
-        "path": "/assets/user_inputs/title_user_input.json"
-    }
+        "title_user_input": "/assets/user_inputs/title_user_input.json"
+    },
+    "initial_user_input": "title_user_input"
 }

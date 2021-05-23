@@ -4,31 +4,43 @@ import UserInput from '../plugins/UserInput.js';
 
 class JSONLevelScene extends Phaser.Scene {
     constructor(key) {
-        super({ key: key });
+        super({key: key});
     }
-
-    init(data) {
+    
+    init (data) {
         this.level_data = data.level_data;
     }
-
-    create() {
+    
+    create () {
         this.groups = {};
         this.level_data.groups.forEach(function (group_name) {
             this.groups[group_name] = this.physics.add.group();
         }, this);
-
+        
         this.prefabs = {};
-        for (let sprite_name in this.level_data.sprites) {
-            let sprite_data = this.level_data.sprites[sprite_name];
-            let sprite = new this.prefab_classes[sprite_data.type](this, sprite_name, sprite_data.position, sprite_data.properties);
+        for (let sprite_name in this.level_data.prefabs) {
+            let sprite_data = this.level_data.prefabs[sprite_name];
+            this.create_prefab(sprite_name, sprite_data);
         }
+        
+        if (this.level_data.user_input) {
+            this.user_inputs = {};
+            for (let user_input_key in this.level_data.user_input) {
+                this.user_inputs[user_input_key] = this.cache.json.get(user_input_key);
+            }
 
-        this.user_input = new UserInput(this);
-        this.user_input_data = this.cache.json.get(this.level_data.user_input.key);
-        this.user_input.set_input(this.user_input_data);
+            this.user_input = new UserInput(this);
+            this.user_input_data = this.cache.json.get(this.level_data.initial_user_input);
+            this.user_input.set_input(this.user_input_data);   
+        }
     }
-
-    update() {
+    
+    create_prefab (sprite_name, sprite_data) {
+        let sprite = new this.prefab_classes[sprite_data.type](this, sprite_name, sprite_data.position, sprite_data.properties);
+        return sprite;
+    }
+    
+    update () {
         for (let prefab_name in this.prefabs) {
             this.prefabs[prefab_name].update();
         }

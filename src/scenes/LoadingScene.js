@@ -1,15 +1,15 @@
 class LoadingScene extends Phaser.Scene {
     constructor() {
-        super({ key: 'LoadingScene' });
+        super({key: 'LoadingScene'});
     }
-
-    init(data) {
+    
+    init (data) {
         this.level_data = data.level_data;
-
-        let loading_message = this.add.text(320, 240, "Loading", { font: "48px Kells", fill: "#ffffff" });
+        
+        let loading_message = this.add.text(320, 240, "Loading", {font: "48px Kells", fill: "#ffffff"});
     }
-
-    preload() {
+    
+    preload () {
         let assets = this.level_data.assets;
         for (let asset_key in assets) {
             let asset = assets[asset_key];
@@ -18,19 +18,22 @@ class LoadingScene extends Phaser.Scene {
                     this.load.image(asset_key, asset.source);
                     break;
                 case 'spritesheet':
-                    this.load.spritesheet(asset_key, asset.source, { frameWidth: asset.frame_width, frameHeight: asset.frame_height, frames: asset.frames, margin: asset.margin, spacing: asset.spacing });
+                    this.load.spritesheet(asset_key, asset.source, {frameWidth: asset.frame_width, frameHeight: asset.frame_height, frames: asset.frames, margin: asset.margin, spacing: asset.spacing});
                     break;
                 case 'tilemap':
                     this.load.tilemapTiledJSON(asset_key, asset.source);
                     break;
             }
         }
-
-        this.load.json(this.level_data.user_input.key, this.level_data.user_input.path);
+        
+        for (let user_input_key in this.level_data.user_input) {
+            let user_input_path = this.level_data.user_input[user_input_key];
+            this.load.json(user_input_key, user_input_path);
+        }
     }
-
-    create(data) {
-        this.scene.start(data.scene, { level_data: this.level_data });
+    
+    create (data) {
+        this.scene.start(data.scene, {level_data: this.level_data, extra_parameters: data.extra_parameters});
     }
 }
 

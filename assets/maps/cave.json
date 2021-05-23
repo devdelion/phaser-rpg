@@ -107,6 +107,29 @@
                  "width":32,
                  "x":289,
                  "y":439
+                }, 
+                {
+                 "height":32,
+                 "id":7,
+                 "name":"enemy_spawner1",
+                 "properties":
+                    {
+                     "encounter":"snake",
+                     "group":"enemy_spawners",
+                     "texture":"snake_image"
+                    },
+                 "propertytypes":
+                    {
+                     "encounter":"string",
+                     "group":"string",
+                     "texture":"string"
+                    },
+                 "rotation":0,
+                 "type":"enemy_spawner",
+                 "visible":true,
+                 "width":32,
+                 "x":288,
+                 "y":256
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -115,7 +138,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":7,
+ "nextobjectid":8,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":32,

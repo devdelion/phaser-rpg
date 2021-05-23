@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="4">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="7">
  <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="240" columns="20">
   <image source="../images/tileset.png" width="640" height="384"/>
   <tile id="51">
@@ -90,6 +90,27 @@
    <properties>
     <property name="group" value="doors"/>
     <property name="next_level" value="cave"/>
+   </properties>
+  </object>
+  <object id="4" name="villager" type="npc" x="448" y="288" width="32" height="32">
+   <properties>
+    <property name="group" value="npcs"/>
+    <property name="message" value="villager_message"/>
+    <property name="texture" value="villager_image"/>
+   </properties>
+  </object>
+  <object id="5" name="guard" type="npc" x="288" y="96" width="32" height="32">
+   <properties>
+    <property name="group" value="npcs"/>
+    <property name="message" value="guard_message"/>
+    <property name="texture" value="guard_image"/>
+   </properties>
+  </object>
+  <object id="6" name="enemy_spawner1" type="enemy_spawner" x="64" y="320" width="32" height="32">
+   <properties>
+    <property name="encounter" value="snake"/>
+    <property name="group" value="enemy_spawners"/>
+    <property name="texture" value="snake_image"/>
    </properties>
   </object>
  </objectgroup>
